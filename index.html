@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css">
     <title>ejercios de javascript</title>
   </head>
-  <body>
+  <body id="cuerpo">
     <h1>ejerciciosde this</h1>
-    <button onclick="mostrarMensaj()">click</button>
+    <form action="">
+      <label for="">intoduzca un color en ingles:</label>
+      <input type="text"size="15" id="cambiar-color">
+      <input type="text" id="cambiar" value="cambiar">
+    </form>
+    <button onclick="mostrarMensaj()">Mostrar Mensaje</button>
     <div id="mostrarMensaj"></div>
     <button onclick="miObjeto.saludar()">Saludar</button>
     <div id="alerta"></div>
@@ -23,6 +29,17 @@
       <input type="submit" value="Enviar" />
     </form>
     <div id="mensaje"></div>
+    <button onclick="mostrar()">click</button>
+    <div id="mostrar"></div>
+
+   
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi itaque at
+      eveniet labore dolorum libero quis hic neque harum voluptas! Obcaecati
+      officia voluptatem, quae laborum tenetur ex quibusdam nesciunt cumque.
+    </p>
+    <button id="cambiarColorBtn">Cambiar color</button>
+    <div id="miElemento"></div>
     <script src="this.js"></script>
   </body>
 </html>

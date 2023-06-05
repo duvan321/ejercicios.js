@@ -1,4 +1,5 @@
 //consepto de scope con datos primitivo
+
 let nombre = "Diego";
 let email = "mailtito@gmail.com";
 function scope() {
@@ -37,7 +38,7 @@ ejemplo();
 //console.log("hola su nonbre es: " + objecto.obtenerNombre());
 this.mensaje = "¡Hola desde JavaScript!";
 function mostrarMensaj() {
-  document.getElementById("mostrarMensaje").textContent = mensaje;
+  document.getElementById("mostrarMensaj").textContent = this.mensaje;
 }
 //function mn() {
 // alert(`${this.mensaje}`);
@@ -61,6 +62,13 @@ const miObjeto = {
 
 //document.getElementById("miFormulario").addEventListener("submit", function (event) {event.preventDefault();this.nombre.value;this.email.value;let mensaje = `¡Hola,  ${nombre}  ! Tu email es:  ${email}`; document.getElementById("mensaje").textContent = mensaje; })
 
+  document.getElementById("cambiar").addEventListener("click", function () {
+    const colorDeFondo = document.getElementById("cambiar-color").value;
+    document
+      .getElementById("cuerpo")
+      .setAttribute("bgcolor", colorDeFondo);
+  });
+
 document.getElementById("miFormulario").addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -70,17 +78,55 @@ document.getElementById("miFormulario").addEventListener("submit", (event) => {
   mostrarMensaje(fomuNombre, formuEmail);
 });
 
-const mostrarMensaje = function(nombre, email) {
+const mostrarMensaje = function (nombre, email) {
   const mensaje = `¡Hola, ${nombre}! Tu email es: ${email}`;
   document.getElementById("mensaje").textContent = mensaje;
 };
 
+this.men = "estos son ejemplos de document.getElementById";
+function mostrar() {
+  document.getElementById("mostrar").textContent = this.men;
+}
+// const elemento = document.querySelector("#miElemento");
+// elemento.textContent = "Nuevo contenido";
+// const elementos = document.querySelector(".miClase");
+// elementos.classList.add("nuevaClase");
+const vElementos = document.querySelectorAll("p");
+vElementos.forEach((elemento) => {
+  elemento.style.color = "red";
+});
+
+// const botonCambiarColor = document.querySelector("#cambiarColorBtn");
+// const miElemento = document.querySelector("#miElemento");
+
+// botonCambiarColor.addEventListener("click", function () {
+//   miElemento.classList.toggle("cambio-color");
+// });
+const botonCambiarColor = document.querySelector("#cambiarColorBtn");
+const miElemento = document.querySelector("#miElemento");
+
+botonCambiarColor.addEventListener("click", function () {
+  const colorAleatorio = generarColorAleatorio();
+  miElemento.style.backgroundColor = colorAleatorio;
+});
+
+function generarColorAleatorio() {
+  const letras = "0123456789ABCDEF";
+  let color = "#";
+
+  for (let i = 0; i < 6; i++) {
+    color += letras[Math.floor(Math.random() * 16)];
+  }
+
+  return color;
+}
+
 //funcion call
 
 const persona = {
-  nombre: "joel",
+  nombre: "josue",
   saludar: function () {
-    console.log(`hola mi nombre es: ${this.nombre}`);
+    console.log(`Hola mi nombre es: ${this.nombre}`);
   },
 };
 
@@ -112,3 +158,21 @@ function sumar(a, b) {
 }
 
 sumar.apply(null, [5, 3]);
+const objecto = {
+  nombre: "yefer",
+};
+function saludar() {
+  console.log(`hola mi nombre es: ${this.nombre}`);
+}
+saludar.apply(objecto);
+
+const numero = [1, 20, 40, 30, 3, 6, 7];
+const numeroMasGrande = Math.max.apply(null, numero);
+console.log(numeroMasGrande);
+// let numerosMaximo = -Infinity;
+// for (let i = 0; i < numero.length; i++) {
+//   if (numero[i] > numerosMaximo) {
+//     numerosMaximo = numero[i];
+//   }
+// }
+// console.log(numerosMaximo);

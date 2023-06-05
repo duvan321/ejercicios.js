@@ -1,0 +1,13 @@
+#miElemento {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+#cambiarColorBtn {
+  margin-top: 50px;
+}
+
+.cambio-color {
+  background-color: blue;
+}
