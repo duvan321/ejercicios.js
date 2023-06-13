@@ -35,7 +35,7 @@ ejemplo();
 //return this.nombre;
 //},
 //};
-//console.log("hola su nonbre es: " + objecto.obtenerNombre());
+//console.log("hola su nombre es: " + objecto.obtenerNombre());
 this.mensaje = "¡Hola desde JavaScript!";
 function mostrarMensaj() {
   document.getElementById("mostrarMensaj").textContent = this.mensaje;
@@ -62,12 +62,10 @@ const miObjeto = {
 
 //document.getElementById("miFormulario").addEventListener("submit", function (event) {event.preventDefault();this.nombre.value;this.email.value;let mensaje = `¡Hola,  ${nombre}  ! Tu email es:  ${email}`; document.getElementById("mensaje").textContent = mensaje; })
 
-  document.getElementById("cambiar").addEventListener("click", function () {
-    const colorDeFondo = document.getElementById("cambiar-color").value;
-    document
-      .getElementById("cuerpo")
-      .setAttribute("bgcolor", colorDeFondo);
-  });
+document.getElementById("cambiar").addEventListener("click", function () {
+  const colorDeFondo = document.getElementById("cambiar-color").value;
+  document.getElementById("cuerpo").setAttribute("bgcolor", colorDeFondo);
+});
 
 document.getElementById("miFormulario").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -176,3 +174,133 @@ console.log(numeroMasGrande);
 //   }
 // }
 // console.log(numerosMaximo);
+const form = document.getElementById("form");
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  if (form.checkValidity()) {
+    mostrarMen("formulario enviado");
+  }
+});
+function mostrarMen(men) {
+  const fOlemento = document.createElement("p");
+  fOlemento.textContent = men;
+  fOlemento.classList.add("mensaje", "mostrar");
+  document.body.appendChild(fOlemento);
+}
+
+
+// Crear un objeto literal con propiedades
+let personas = {
+ nombre: 'Juan',
+  edad: 25,
+  profesion: 'Desarrollador'
+};
+
+// Acceder a las propiedades del objeto
+console.log(personas.nombre); // Output: Juan
+console.log(personas.edad); // Output: 25
+console.log(personas.profesion); // Output: Desarrollador
+
+
+//Acceder a elementos del DOM:
+//javascript
+
+// Acceder a un elemento por su ID
+let element = document.getElementById('miElemento');
+
+// Acceder a elementos por su clase
+let elemento1 = document.getElementsByClassName('miClase');
+
+// Acceder a elementos por su etiqueta
+let elemento2 = document.getElementsByTagName('div');
+
+// Acceder a elementos por un selector CSS
+let elemento3 = document.querySelectorAll('.miClase');
+
+
+//promesas
+const miPromesa = new Promise((resolve, reject) => {
+  // Operación asincrónica
+  setTimeout(() => {
+    const exito = true;
+    if (exito) {
+      resolve('Operación exitosa');
+    } else {
+      reject('Error en la operación');
+    }
+  }, 2000);
+});
+
+// Consumir la promesa
+miPromesa.then((resultado) => {
+  console.log(resultado); // Operación exitosa
+}).catch((error) => {
+  console.error(error); // Error en la operación
+});
+
+
+
+
+const startButton = document.getElementById("startButton")
+const counterElement = document.getElementById("counter")
+const message = document.getElementById("message")
+
+function delay(ms){
+  return new Promise(resolve => setTimeout(resolve,ms))
+}
+
+function incrementarCounter(){
+  return new Promise(resolve =>{
+    let currentCounter = parseInt(counterElement.textContent)
+    delay(1000).then(()=>{
+      currentCounter++
+      counterElement.textContent = currentCounter
+      resolve(currentCounter)
+    })
+  })
+}
+// Evento de clic en el botón de inicio
+startButton.addEventListener('click', () => {
+
+  // Iniciar el incremento del contador utilizando una promesa
+  incrementarCounter().then(count => {
+    message.textContent = `El contador se incrementó a: ${count}`
+  });
+});
+// Obtener elementos del DOM
+// const startButton = document.getElementById('startButton');
+// const counterElement = document.getElementById('counter');
+// const messageElement = document.getElementById('message');
+
+// // Función para simular una operación asincrónica
+// function delay(ms) {
+//   return new Promise(resolve => setTimeout(resolve, ms));
+// }
+
+// // Función que incrementa el contador
+// function incrementCounter() {
+//   return new Promise(resolve => {
+//     // Obtener el valor actual del contador
+//     let currentCount = parseInt(counterElement.textContent);
+
+//     // Simular una operación asincrónica de incremento
+//     delay(1000).then(() => {
+//       // Incrementar el contador
+//       currentCount++;
+//       // Actualizar el valor del contador en el DOM
+//       counterElement.textContent = currentCount;
+//       // Resolver la promesa con el nuevo valor del contador
+//       resolve(currentCount);
+//     });
+//   });
+// }
+
+// // Evento de clic en el botón de inicio
+// startButton.addEventListener('click', () => {
+//   // Iniciar el incremento del contador utilizando una promesa
+//   incrementCounter().then(count => {
+//     // Mostrar mensaje en la página web
+//     messageElement.textContent = `El contador se incrementó a: ${count}`;
+//   });
+// });
+

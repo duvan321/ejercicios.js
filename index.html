@@ -9,10 +9,11 @@
   </head>
   <body id="cuerpo">
     <h1>ejercicios de this</h1>
+
     <form action="">
       <label for="">intoduzca un color en ingles:</label>
       <input type="text" size="15" id="cambiar-color" />
-      <input type="text" id="cambiar" value="cambiar" />
+      <input type="text" id="cambiar" value="cambiar" style="cursor: pointer" />
     </form>
     <button onclick="mostrarMensaj()">Mostrar Mensaje</button>
     <div id="mostrarMensaj"></div>
@@ -39,6 +40,17 @@
     </p>
     <button id="cambiarColorBtn">Cambiar color</button>
     <div id="miElemento"></div>
+    <form action="" id="form">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="name" required /><br />
+      <label for="correo">Correo Electrónico:</label>
+      <input type="email" name="email" id="email" /><br />
+      <input type="submit" value="submit" />
+    </form>
+    <h1>Contador</h1>
+    <button id="startButton">Iniciar</button>
+    <p id="counter">0</p>
+    <div id="message"></div>
     <script src="this.js"></script>
   </body>
 </html>
